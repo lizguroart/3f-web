@@ -4,6 +4,29 @@ import Link from "next/link";
 import Image from "next/image";
 import Button from "../ui/Button";
 
+const navigation = [
+  {
+    label: "Inicio",
+    href: "/",
+  },
+  {
+    label: "Servicios",
+    href: "#services",
+  },
+  {
+    label: "Proyectos",
+    href: "#projects",
+  },
+  {
+    label: "Nosotros",
+    href: "#about",
+  },
+  {
+    label: "Contacto",
+    href: "#contact",
+  },
+];
+
 export default function Navbar() {
   return (
     <header
@@ -88,16 +111,10 @@ export default function Navbar() {
             gap-10
           "
         >
-          {[
-            "Inicio",
-            "Servicios",
-            "Proyectos",
-            "Nosotros",
-            "Contacto",
-          ].map((item) => (
+          {navigation.map((item) => (
             <Link
-              key={item}
-              href="/"
+              key={item.label}
+              href={item.href}
               className="
                 relative
                 text-sm
@@ -117,13 +134,13 @@ export default function Navbar() {
                 hover:after:w-full
               "
             >
-              {item}
+              {item.label}
             </Link>
-          ))}
+                      ))}
         </nav>
 
         {/* CTA */}
-        <Button>
+        <Button href="https://wa.me/573176360046" target="_blank">
           Solicitar asesoría
         </Button>
       </div>

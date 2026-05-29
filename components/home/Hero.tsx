@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/ui/Button";
+import Badge from "@/components/ui/Badge";
 import Image from "next/image";
 import {
   ShieldCheck,
@@ -85,24 +86,16 @@ export default function Hero() {
           <div
             className="
               mb-6
-              inline-flex
-              items-center
               gap-2
-              rounded-full
-              border
-              border-white/10
-              bg-white/[0.03]
-              px-4
-              py-2
-              text-xs
-              uppercase
-              tracking-[0.25em]
-              text-[#1185F5]
-              
+
             "
           >
-            Tecnología que impulsa negocios
+            <Badge>
+              Tecnología que impulsa negocios
+            </Badge>
+
           </div>
+          
 
           {/* TITLE */}
           <h1
@@ -142,11 +135,11 @@ export default function Hero() {
               gap-4
             "
           >
-            <Button>
+            <Button href="https://wa.me/573176360046" target="_blank">
               Solicitar asesoría
             </Button>
 
-            <Button variant="secondary">
+            <Button variant="secondary" href="#services">
               Ver servicios
             </Button>
           </div>

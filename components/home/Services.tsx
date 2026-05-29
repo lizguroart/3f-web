@@ -48,6 +48,7 @@ export default function Services() {
         bg-[#040B1A]
         py-10
       "
+      id="services"
     >
       {/* BACKGROUND GLOW */}
       <div
