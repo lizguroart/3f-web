@@ -7,7 +7,7 @@ import Link from "next/link";
 
 interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "third";
   href?: string;
   target?: string;
 }
@@ -23,8 +23,8 @@ export default function Button({
   const styles = clsx(
     `
       group
-      inline-flex
       items-center
+      justify-center
       gap-2
       rounded-2xl
       px-6
@@ -50,6 +50,15 @@ export default function Button({
         bg-white/[0.03]
         text-white
         hover:bg-white/[0.05]
+      `,
+
+     variant === "third" &&
+      `
+        border
+        border-[#1185F5]/40 
+        bg-[#1185F5]/10 
+        text-white
+        hover:bg-[#1185F5]/20
       `,
     className
   );

@@ -31,7 +31,9 @@ export default function Hero() {
         relative
         overflow-hidden
         pt-8
-        pb-8
+        pb-6
+        lg:pt-8
+        lg:pb-8
       "
     >
       {/* BACKGROUND EFFECTS */}
@@ -75,7 +77,8 @@ export default function Hero() {
           grid
           max-w-7xl
           items-center
-          gap-20
+          gap-10
+          lg:gap-20
           px-6
           lg:grid-cols-[1fr_1.5fr]
         "
@@ -102,11 +105,12 @@ export default function Hero() {
             className="
               max-w-3xl
               font-[family:var(--font-sora)]
-              text-5xl
               font-black
               leading-[0.95]
               text-white
-              md:text-5xl
+              text-4xl
+              sm:text-5xl
+              lg:text-6xl
             "
           >
             Soluciones tecnológicas modernas para empresas que quieren <strong  className="text-[#FB5802]">crecer.</strong>
@@ -131,15 +135,17 @@ export default function Hero() {
             className="
               mt-10
               flex
-              flex-wrap
+              flex-col
               gap-4
+              sm:flex-row
+              mb-4
             "
           >
-            <Button href="https://wa.me/573176360046" target="_blank">
+            <Button href="https://wa.me/573176360046" target="_blank" className="inline-flex w-full lg:w-fit">
               Solicitar asesoría
             </Button>
 
-            <Button variant="secondary" href="#services">
+            <Button variant="secondary" href="#services" className="inline-flex w-full lg:w-fit">
               Ver servicios
             </Button>
           </div>
@@ -190,11 +196,11 @@ export default function Hero() {
             {/* Hero Image */}
            <div
             className="
-                relative
-                w-full
-                scale-110
-                lg:scale-125
-                -mr-10
+                 relative
+                  w-full
+                  scale-100
+                  sm:scale-105
+                  lg:scale-125
             "
             >
                 <Image
@@ -204,14 +210,15 @@ export default function Hero() {
                 height={1200}
                 priority
                 className="
-                    relative
-                    z-10
-                    h-auto
-                    w-full
-                    object-contain
-                    scale-110
-                    lg:scale-125
-                    translate-x-6
+                     relative
+                      z-10
+                      h-auto
+                      w-full
+                      object-contain
+                      scale-100
+                      sm:scale-105
+                      lg:scale-125
+                      lg:translate-x-6
                     drop-shadow-[0_0_40px_rgba(17,133,245,0.18)]
                 "
                 />
@@ -222,12 +229,11 @@ export default function Hero() {
        {/* MINI FEATURES */}
             <div
             className="
-                mt-6
                 flex
                 flex-wrap
+                justify-center
+                lg:justify-start
                 gap-4
-                max-w-7xl
-                mx-auto
             "
             >
             {features.map((item) => {

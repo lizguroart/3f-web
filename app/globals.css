@@ -21,3 +21,28 @@ body {
   color: var(--foreground);
   font-family: Inter, sans-serif;
 }
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #040b1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1185f5;
+  border-radius: 999px;
+  border: 2px solid #040b1a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b9cff;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1185f5 #040b1a;
+}

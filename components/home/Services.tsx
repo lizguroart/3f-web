@@ -1,4 +1,8 @@
 "use client";
+import Card from "@/components/ui/Card";
+import Button from "@/components/ui/Button";
+import ServiceModal from "@/components/layout/ServiceModal";
+import { useState } from "react";
 
 import {
   Code2,
@@ -13,33 +17,139 @@ const services = [
     title: "Soluciones\nDigitales",
     description:
       "Desarrollo web, ecommerce, software a medida y automatización.",
+
+    longDescription:
+      "Creamos soluciones digitales modernas que ayudan a las empresas a fortalecer su presencia en línea, optimizar procesos y generar nuevas oportunidades de negocio mediante tecnología escalable y experiencias digitales de alto impacto.",
+
     icon: Code2,
     color: "text-[#1185F5]",
+
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Vercel",
+    ],
+
+    features: [
+      "Landing Pages",
+      "Sitios Corporativos",
+      "Tiendas Online",
+      "Aplicaciones Web",
+      "Automatización de procesos",
+      "Optimización SEO",
+    ],
+
+    whatsappMessage:
+      "Hola, quiero información sobre Soluciones Digitales.",
   },
+
   {
     title: "Soporte\nTecnológico",
     description:
       "Mantenimiento, optimización y asistencia técnica para tus sistemas.",
+
+    longDescription:
+      "Brindamos soporte tecnológico preventivo y correctivo para garantizar la continuidad operativa de tu empresa, minimizando incidentes y mejorando el rendimiento de tus equipos y plataformas.",
+
     icon: Headphones,
     color: "text-[#FB5802]",
+
+    technologies: [
+      "Windows",
+      "Linux",
+      "Microsoft 365",
+      "Google Workspace",
+      "AnyDesk",
+      "TeamViewer",
+    ],
+
+    features: [
+      "Soporte remoto",
+      "Soporte presencial",
+      "Mantenimiento preventivo",
+      "Mantenimiento correctivo",
+      "Diagnóstico de equipos",
+      "Mesa de ayuda",
+    ],
+
+    whatsappMessage:
+      "Hola, quiero información sobre Soporte Tecnológico.",
   },
+
   {
     title: "Infraestructura\ny Redes",
     description:
       "Cableado estructurado, conectividad, servidores y redes empresariales.",
+
+    longDescription:
+      "Diseñamos e implementamos infraestructuras tecnológicas confiables y escalables, asegurando conectividad, estabilidad y seguridad para el crecimiento de tu organización.",
+
     icon: Network,
     color: "text-[#1185F5]",
+
+    technologies: [
+      "MikroTik",
+      "Ubiquiti",
+      "Cisco",
+      "Windows Server",
+      "Linux Server",
+      "VPN",
+    ],
+
+    features: [
+      "Cableado estructurado",
+      "Configuración de redes",
+      "Administración de servidores",
+      "Redes inalámbricas",
+      "VPN corporativas",
+      "Monitoreo de infraestructura",
+    ],
+
+    whatsappMessage:
+      "Hola, quiero información sobre Infraestructura y Redes.",
   },
+
   {
     title: "Seguridad\nTecnológica",
     description:
       "Sistemas de CCTV, control de acceso y monitoreo inteligente.",
+
+    longDescription:
+      "Implementamos soluciones de seguridad tecnológica para proteger instalaciones, recursos e información mediante sistemas modernos de vigilancia y control.",
+
     icon: ShieldCheck,
     color: "text-[#FB5802]",
+
+    technologies: [
+      "CCTV IP",
+      "Control de Acceso",
+      "Biometría",
+      "Alarmas",
+      "Monitoreo Remoto",
+      "Videovigilancia",
+    ],
+
+    features: [
+      "Cámaras de seguridad",
+      "Control de acceso",
+      "Sistemas biométricos",
+      "Monitoreo remoto",
+      "Alarmas inteligentes",
+      "Diagnóstico de vulnerabilidades",
+    ],
+
+    whatsappMessage:
+      "Hola, quiero información sobre Seguridad Tecnológica.",
   },
 ];
 
 export default function Services() {
+  const [selectedService, setSelectedService] =
+  useState<(typeof services)[0] | null>(null);
+
   return (
     <section
       className="
@@ -95,12 +205,13 @@ export default function Services() {
             flex
             flex-col
             justify-center
-            rounded-[28px]
-            border
-            border-white/10
-            bg-white/[0.02]
-            p-10
-            backdrop-blur-sm
+
+            lg:rounded-[28px]
+            lg:border
+            lg:border-white/10
+            lg:bg-white/[0.02]
+            lg:p-10
+            lg:backdrop-blur-sm
           "
         >
           <span
@@ -122,35 +233,15 @@ export default function Services() {
               font-black
               leading-tight
               text-white
+               mb-8
             "
           >
             Soluciones completas para tu negocio
           </h2>
 
-          <button
-            className="
-              mt-10
-              inline-flex
-              w-fit
-              items-center
-              gap-3
-              rounded-xl
-              border
-              border-[#1185F5]/40
-              bg-[#1185F5]/10
-              px-5
-              py-3
-              text-sm
-              font-medium
-              text-white
-              transition
-              hover:bg-[#1185F5]/20
-            "
-          >
-            Conócenos más
-
-            <ArrowRight className="h-4 w-4" />
-          </button>
+          <Button variant="third"  href="https://wa.me/573176360046" target="_blank" className="hidden lg:inline-flex w-full lg:w-fit">
+              Conócenos más
+          </Button>
         </div>
 
         {/* RIGHT SIDE */}
@@ -161,106 +252,25 @@ export default function Services() {
             md:grid-cols-2
           "
         >
-          {services.map((service) => {
-            const Icon = service.icon;
-
-            return (
-              <div
-                key={service.title}
-                className="
-                  group
-                  relative
-                  overflow-hidden
-                  rounded-[28px]
-                  border
-                  border-white/10
-                  bg-white/[0.02]
-                  p-8
-                  backdrop-blur-sm
-                  transition-all
-                  duration-300
-                  hover:-translate-y-1
-                  hover:border-orange-500/20
-                  hover:bg-white/[0.04]
-                "
-              >
-                {/* HOVER GLOW */}
-                <div
-                  className="
-                    absolute
-                    right-0
-                    top-0
-                    h-24
-                    w-24
-                    rounded-full
-                    bg-orange-500/10
-                    blur-3xl
-                    opacity-0
-                    transition
-                    duration-500
-                    group-hover:opacity-100
-                  "
-                />
-
-                {/* ICON */}
-                <Icon
-                  className={`
-                    h-8
-                    w-8
-                    ${service.color}
-                  `}
-                />
-
-                {/* TITLE */}
-                <h3
-                  className="
-                    mt-6
-                    whitespace-pre-line
-                    text-2xl
-                    font-bold
-                    leading-tight
-                    text-white
-                  "
-                >
-                  {service.title}
-                </h3>
-
-                {/* DESCRIPTION */}
-                <p
-                  className="
-                    mt-4
-                    max-w-xs
-                    text-sm
-                    leading-relaxed
-                    text-gray-400
-                  "
-                >
-                  {service.description}
-                </p>
-
-                {/* LINK */}
-                <button
-                  className="
-                    mt-6
-                    inline-flex
-                    items-center
-                    gap-2
-                    text-sm
-                    font-medium
-                    text-[#1185F5]
-                    transition
-                    hover:text-[#FB5802]
-                  "
-                >
-                  Ver más
-
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </div>
-            );
-          })}
+          {services.map((service) => (
+            <Card
+              key={service.title}
+              {...service}
+              onViewMore={() =>
+                setSelectedService(service)
+              }
+            />
+          ))}
         </div>
       </div>
+            <ServiceModal
+            open={!!selectedService}
+            service={selectedService}
+            onClose={() =>
+              setSelectedService(null)
+            }
+          />
     </section>
   );
 }
+

@@ -41,6 +41,7 @@ export default function WhyChooseUs() {
         bg-[#040B1A]
         py-16
       "
+      id="about"
     >
       {/* BACKGROUND GLOW */}
       <div

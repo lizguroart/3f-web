@@ -14,10 +14,6 @@ const navigation = [
     href: "#services",
   },
   {
-    label: "Proyectos",
-    href: "#projects",
-  },
-  {
     label: "Nosotros",
     href: "#about",
   },
