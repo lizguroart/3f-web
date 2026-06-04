@@ -103,7 +103,7 @@ export default function ProcessSection() {
             className="
               mt-4
               max-w-sm
-              text-5xl
+              text-4xl
               font-black
               leading-tight
               text-white
@@ -112,14 +112,128 @@ export default function ProcessSection() {
             Así trabajamos para ti
           </h2>
         </div>
+        {/* PROCESS Mobile */}
+        <div
+  className="
+    relative
+    flex
+    flex-col
+    gap-10
+    lg:hidden
+  "
+>
+  {process.map((item, index) => {
+    const Icon = item.icon;
 
-        {/* PROCESS */}
+    return (
+      <div
+        key={item.title}
+        className="
+          relative
+          flex
+          gap-5
+        "
+      >
+        {/* LEFT COLUMN */}
         <div
           className="
             relative
-            grid
+            flex
+            flex-col
+            items-center
+          "
+        >
+          {/* NUMBER */}
+          <div
+            className={`
+              z-20
+              flex
+              h-8
+              w-8
+              items-center
+              justify-center
+              rounded-full
+              text-sm
+              font-bold
+              text-white
+              ${item.color}
+            `}
+          >
+            {item.number}
+          </div>
+
+          {/* ICON */}
+          <div
+            className="
+              mt-3
+              flex
+              h-16
+              w-16
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-white/10
+              bg-white/[0.03]
+            "
+          >
+            <Icon
+              className="
+                h-7
+                w-7
+                text-white
+              "
+            />
+          </div>
+
+          {/* VERTICAL LINE */}
+          {index !== process.length - 1 && (
+            <div
+              className="
+                mt-2
+                h-20
+                border-l
+                border-dashed
+                border-white/20
+              "
+            />
+          )}
+        </div>
+
+        {/* CONTENT */}
+        <div className="pt-10">
+          <h3
+            className="
+              text-xl
+              font-bold
+              text-white
+            "
+          >
+            {item.title}
+          </h3>
+
+          <p
+            className="
+              mt-3
+              text-sm
+              leading-relaxed
+              text-gray-400
+            "
+          >
+            {item.description}
+          </p>
+        </div>
+      </div>
+    );
+  })}
+        </div>
+        {/* PROCESS Desktop */}
+        <div
+          className="
+            relative
+            hidden
+            lg:grid
             gap-8
-            md:grid-cols-2
             xl:grid-cols-4
           "
         >

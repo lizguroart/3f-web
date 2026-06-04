@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { services } from "@/data/services";
 
 import {
   MessageCircle,
@@ -15,24 +16,50 @@ import {
   FaLinkedinIn,
   FaWhatsapp,
 } from "react-icons/fa";
+interface FooterProps {
+  onOpenService: (service: any) => void;
+}
+const socials = [
+  {
+    icon: FaFacebookF,
+    url: "https://web.facebook.com/3fic.co/",
+  },
+  {
+    icon: FaInstagram,
+    url: "https://instagram.com/tu-cuenta",
+  },
+  {
+    icon: FaLinkedinIn,
+    url: "https://www.linkedin.com/company/3f-ingenier%C3%ADa-y-consultor%C3%ADa/",
+  },
+  {
+    icon: FaWhatsapp,
+    url: "https://wa.me/573176360046",
+  },
+];
 
 const navigation = [
-  "Inicio",
-  "Servicios",
-  "Soluciones",
-  "Proyectos",
-  "Nosotros",
-  "Contacto",
+  {
+    label: "Inicio",
+    href: "#hero",
+  },
+  {
+    label: "Servicios",
+    href: "#services",
+  },
+  {
+    label: "Nosotros",
+    href: "#about",
+  },
+  {
+    label: "Contacto",
+    href: "#contact",
+  },
 ];
 
-const services = [
-  "Soluciones Digitales",
-  "Soporte Tecnológico",
-  "Infraestructura y Redes",
-  "Seguridad Tecnológica",
-];
-
-export default function Footer() {
+export default function Footer({
+  onOpenService,
+}: FooterProps) {
   return (
     <footer
       className="
@@ -159,35 +186,37 @@ export default function Footer() {
               gap-4
             "
           >
-            {[
-              FaFacebookF,
-              FaInstagram,
-              FaLinkedinIn,
-              FaWhatsapp,
-            ].map((Icon, index) => (
-              <button
-                key={index}
-                className="
-                  flex
-                  h-10
-                  w-10
-                  items-center
-                  justify-center
-                  rounded-full
-                  border
-                  border-white/10
-                  bg-white/[0.03]
-                  text-gray-300
-                  transition-all
-                  duration-300
-                  hover:border-orange-500/30
-                  hover:bg-orange-500/10
-                  hover:text-white
-                "
-              >
-                <Icon className="h-4 w-4" />
-              </button>
-            ))}
+            {socials.map((social, index) => {
+              const Icon = social.icon;
+
+              return (
+                <a
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    flex
+                    h-10
+                    w-10
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-white/10
+                    bg-white/[0.03]
+                    text-gray-300
+                    transition-all
+                    duration-300
+                    hover:border-orange-500/30
+                    hover:bg-orange-500/10
+                    hover:text-white
+                  "
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              );
+            })}
           </div>
         </div>
 
@@ -214,8 +243,9 @@ export default function Footer() {
             "
           >
             {navigation.map((item) => (
-              <button
-                key={item}
+              <a
+                key={item.label}
+                href={item.href}
                 className="
                   w-fit
                   text-left
@@ -224,8 +254,8 @@ export default function Footer() {
                   hover:text-[#1185F5]
                 "
               >
-                {item}
-              </button>
+                {item.label}
+              </a>
             ))}
           </div>
         </div>
@@ -252,20 +282,21 @@ export default function Footer() {
               gap-4
             "
           >
-            {services.map((item) => (
-              <button
-                key={item}
-                className="
-                  w-fit
-                  text-left
-                  text-gray-400
-                  transition
-                  hover:text-[#FB5802]
-                "
-              >
-                {item}
-              </button>
-            ))}
+           {services.map((item) => (
+            <button
+              key={item.title}
+              onClick={() => onOpenService(item)}
+              className="
+                w-fit
+                text-left
+                text-gray-400
+                transition
+                hover:text-[#FB5802]
+              "
+            >
+              {item.title.replace("\n", " ")}
+            </button>
+          ))}
           </div>
         </div>
 
@@ -323,7 +354,16 @@ export default function Footer() {
             </div>
 
             {/* EMAIL */}
-            <div className="flex items-center gap-3">
+            <a
+              href="mailto:hola@3fic.com"
+              className="
+                flex
+                items-center
+                gap-3
+                transition
+                hover:text-[#1185F5]
+              "
+            >
               <Mail
                 className="
                   h-5
@@ -332,13 +372,16 @@ export default function Footer() {
                 "
               />
 
-              <p className="text-gray-400">
+              <span className="text-gray-400">
                 hola@3fic.com
-              </p>
-            </div>
+              </span>
+            </a>
 
             {/* WHATSAPP BUTTON */}
-            <button
+            <a
+              href="https://wa.me/573176360046"
+              target="_blank"
+              rel="noopener noreferrer"
               className="
                 mt-4
                 inline-flex
@@ -362,7 +405,7 @@ export default function Footer() {
               <MessageCircle className="h-5 w-5 text-green-400" />
 
               Escríbenos por WhatsApp
-            </button>
+            </a>
           </div>
         </div>
       </div>

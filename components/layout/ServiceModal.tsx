@@ -324,10 +324,10 @@ export default function ServiceModal({
         )}`}
         target="_blank"
         className="
-        inline-flex
-            w-full
-    lg:w-auto
-    min-w-[260px]
+          inline-flex
+          w-full
+          lg:w-auto
+          min-w-[260px]
           bg-gradient-to-r
           from-[#FB5802]
           to-orange-500

@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import Button from "../ui/Button";
 import Image from "next/image";
 
 export default function CTASection() {
@@ -66,12 +67,17 @@ export default function CTASection() {
           justify-between
           gap-10
           px-6
+          text-center
           lg:flex-row
           lg:items-center
+          lg:text-left
         "
       >
         {/* LEFT SIDE */}
-        <div className="max-w-2xl">
+        <div className="max-w-2xl flex
+          flex-col
+          items-center
+          lg:items-start">
           
           <span
             className="
@@ -115,31 +121,10 @@ export default function CTASection() {
             moderna y soluciones confiables.
           </p>
 
-          <button
-            className="
-              mt-8
-              inline-flex
-              items-center
-              gap-3
-              rounded-2xl
-              bg-[#FB5802]
-              px-6
-              py-4
-              text-sm
-              font-semibold
-              text-white
-              shadow-lg
-              shadow-orange-500/20
-              transition-all
-              duration-300
-              hover:scale-[1.02]
-              hover:bg-[#ff6a1f]
-            "
-          >
-            Contáctanos ahora
-
-            <ArrowRight className="h-5 w-5" />
-          </button>
+          <Button href="https://wa.me/573176360046" target="_blank" className="mt-8 inline-flex w-full lg:w-fit">
+               Contáctanos ahora
+          </Button>
+        
         </div>
       </div>
     </section>

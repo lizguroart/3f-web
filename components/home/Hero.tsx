@@ -234,6 +234,8 @@ export default function Hero() {
                 justify-center
                 lg:justify-start
                 gap-4
+                mx-auto
+                max-w-7xl
             "
             >
             {features.map((item) => {

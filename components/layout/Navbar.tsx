@@ -136,7 +136,8 @@ export default function Navbar() {
         </nav>
 
         {/* CTA */}
-        <Button href="https://wa.me/573176360046" target="_blank">
+        <Button href="https://wa.me/573176360046" target="_blank" className="
+          inline-flex">
           Solicitar asesoría
         </Button>
       </div>
